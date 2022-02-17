@@ -1,0 +1,338 @@
+O P E R A D O R E S   R E L A C I O N A I S
+
+"São símbolos especiais quais são capazes de realizar comparações entre determinados operandos e, em seguida, retornar um resultado"
+
+Tipos:
+
+# Similaridade: igual, diferente
+# Tamanho: maior, maior igual, menor, menor igual
+
+     S i m i l a r i d a d e
+
+# Igualdade: determina se um operando é igual ao outro
+# Diferença: determina se um operando não é igual ao outro
+
+Símbologia
+# Igualdade: ==    / somente um = é atribuição e nao igualdade.
+# Diferença: !=
+
+     T a m a n h o
+
+# Maior: determina se um operando é maior do que outro
+# Maior igual: determina se um operando é maior ou igual a outro
+
+Símbologia
+# Maior: >
+# Maior igual: >=
+
+# Menor: determina se um operando é menor do que outro
+# Menor igual: determina se um operando é menor ou igual a outro
+
+Símbologia
+# Menor: <
+# Menor igual: <=
+
+
+     E x e m p l o s
+
+int i1 = 10; int i2 = 20; float f1 = 4.5f; float f2 = 3.5f;
+char c1 = 'x'; char c2 = 'y'; string s1 = "Fulano"; String s2 = "Fulano";
+boolean b1 = true; boolean b2 = false;
+
+i1 == i2, i1 != i2, i1 > i2, i1 <= i2
+f1 == f2, f1 != f2, f1 >= f2, f1 < f2
+c1 ==c2, c1 != c2, c1 > c2, c1 <= c2
+s1 == s2, s1 != s2, s1 >= s2, s1 < s2
+b1 == b2, b1 != b2, b1 > b2, b1 <= i1
+i2 > f1
+
+s1 >= s2 / nao tem logica comparar letras
+s1 < s2 / nao tem logica comparar letras
+b1 <= i1 / nao tem logica comparar se verdadeiro ou falso é menor ou igual.
+b1 > b2 / nao tem logica comparar se verdadeiro ou falso é maior
+
+
+
+O P E R A D O R E S   L Ó G I C O S
+
+São símbolos especiais quais são capazes de realizar comparações lógicas entre operandos lógicos ou expressões e, em seguida, retornar um resultado;
+
+Tipos:
+
+# Conjunção
+# Disjunção
+# Disjunção exclusiva
+# Negação
+
+só funcionam para operadores lógicos ou expressões que retornem valores lógicos
+(true, false)
+
+     C o n j u n ç ã o
+
+Operação lógica que só é verdadeira quando ambos os operandos ou expressões envolvidas são verdade;
+
+Simbologia:
+# &&
+
+Terminologia:
+# and (e)
+
+ O-E /O-E/R/
+  V / V /V/
+ V / F /F/
+F / F /F/
+F/ F /F/
+
+O - Operando   E - Expressão    R - Resultado
+
+
+    D i s j u n ç ã o
+
+Operação que só é falsa quando ambos os operandos ou expressões envolvidas são falsos
+
+Simbologia:
+
+# || pipe
+
+Terminologia:
+
+# or (ou)
+
+ O-E /O-E/R/
+  V / V /V/
+ V / F /V/
+F / V /V/
+F/ F /F/
+
+O - Operando   E - Expressão    R - Resultado
+
+
+    D i s j u n ç ã o   E x c l u s i v a
+
+Operação que só é verdade quando os operandos ou expressões são opostos;
+
+Simbologia:
+
+# ^
+
+Terminologia:
+
+# xor
+
+
+ O-E /O-E/R/
+  V / V /F/
+ V / F /V/
+F / V /V/
+F/ F /F/
+
+O - Operando   E - Expressão    R - Resultado
+
+
+
+    N e g a ç ã o
+
+Operação que inverte o valor lógico de um operando ou expressão
+
+Simbologia:
+
+# !
+
+Terminologia:
+
+# inverção
+
+
+O-E / R /
+V  / F /
+F / V /
+
+O - Operando   E - Expressão    R - Resultado
+
+
+Exemplos:
+
+
+boolean b1 = true; boolean b2 = false;
+boolean b3 = true; boolean b4 = false;
+
+b1 && b2, b1 && b3
+b2 || b3, b2 || b4
+b1 ^ b3, b4 ^ b1
+!b1, !b2
+(i1 > i2) || (f2 < f1)
+((i1 + i2) < (f2 - f1)) && true
+
+b1 && b2 é falso // conjunção
+b1 && b3 é verdadeiro //conjunção
+
+b2 || b3 é verdadeiro // disjunção
+b2 || b4 é falso // disjunção
+
+b1 ^ b3 é falso // disjunção exclusiva
+b4 ^ b1 é verdadeiro // disjunção exclusiva
+
+!b1 é falso //negação
+!b2 é verdadeiro //negação
+
+(i1 > i2) || (f2 < f1) dependendo dos valores poderá ser verdadeiro ou falso
+
+conjunção quando todos são verdadeiros é verdadeiro
+disjunção quando todos sao falsos é falso
+disjunção exclusiva - quando sao diferentes é verdadeiro
+negação - inverte, se for verdadeiro é falso, se for falso é verdadeiro.
+
+
+
+    C u r i o s i d a d e s
+
+# Operadores bitwise: & e |
+# Operadores shift: ~, >>, >>>, <<
+
+
+Boas práticas:
+
+# Crie variáveis auxiliares para guardar resultados intermediários;
+
+(salarioMensal < mediaSalario) && (quantidadeDependentes >= mediaDependentes)
+pode ser
+(salarioBaixo) && (muitosDependentes)
+
+boolean recebeAuxilio = (salarioBaixo)
+&& (muitosDependentes);
+
+
+
+
+C O N T R O L E S   D E   F L U X O
+
+São estruturas que tem a capacidade de direcionar o fluxo de execução do código;
+
+Tipos:
+# Decisão: if, if-else, if-else-if, switch e operador ternário
+# Repetição: for, while, do while
+# interrupção: break, continue e return
+
+
+    D e c i s ã o
+
+Estrutura que avalia uma condição booleana ou variável para direcionar o fluxo de execução
+
+Opções: if(se), switch(escolha) e operador ternário;
+
+
+if: if, if-else, if-else-if, if-else-if-else
+
+basicamente, (se) for verdadeiro vai ir para outro caminho ou terminar a execução
+(se) for falso irá para outro caminho ou terminar a execução
+
+if (idade > 18) { if (aprovado) { if (casado && temFilhos) {
+}                  }else  {"reprovado"} else if (casado && semFilhos) {
+                   }              } else {
+                                  }
+
+if (idade > 18) = pessoa vai tirar a carteira de motorista e é maior de 18 / se esse primeiro if nao for true, não vai adiante nas outras escolhas.. por isso nao tem else
+
+if (aprovado) = media 8 - vai pra proxima etapa
+else  {  media abaixo de 8, reprovado 
+
+proxima etapa:
+if (casado && temFilhos) 1 opção
+else if (casado && semFilhos)  2 opção
+else { caso nenhuma das opções de cima for verdadeiro, pode rodar essa terceira..
+ou ele pode nao ser casado, se não tivesse essa terceira opção, essa questão só seria para pessoas casadas.
+
+
+pode haver if dentro de if e quantos else for necessário, porém é um risco ter opções demais.
+
+
+
+Operador ternário:
+
+condição ? true : false;    condição ? true : null;
+ligado ? desligar : ligar;     emMovimento ? freia : null;
+
+
+condição ? true : false; se for verdade executa o true, se for falso executa no false
+condição ? true : null; se for verdade executa o true, se for null nao faz nada.
+ligado ? desligar : ligar; está ligado? desliga, se tiver desligado, liga.
+emMovimento ? freia : null; se tiver em movimento freia, se ja tiver em movimento nao faz nada.
+
+operador ternário é recomendado não ser usado. (boas práticas)
+
+
+Switch(escolha):
+
+Variável:             switch (variável) {
+byte                   case 1:
+short                   break;
+char                   case ... :
+int                     break;
+Enum                   default:
+String                  break;
+
+As variáveis mais usadas sao, int, Enum, String.
+
+
+switch (olhos) {
+ case "AZUIS" :
+  break;
+ case "VERDES" :
+  break;
+ case "CASTANHOS";
+  break;
+ default:
+  break;
+}
+
+
+Boas práticas:
+
+# Switch é para valores exatos e if para expressões booleanas
+# Evitar usar o default do switch para "cases genéricos" é melhor usa-lo para indicar algo inválido. 
+# Evitar o efeito "flecha" dos if's
+dificuldade para visualizar e entender o código por ter muito if.
+# Evitar muitos if's aninhados
+# Usar a boa prática da aula 2 para diminuir o tamanho do if
+
+
+
+
+B L O C O S
+
+É um grupo de 0 ou mais códigos quais trabalham em conjunto para executar uma operação;
+
+Tipos:
+
+# Locais: dentro de métodos;
+# Estáticos: dentro de classes
+# Instância: dentro de classes
+
+
+Locais:
+
+{
+
+
+
+...
+
+
+}
+
+tudo que estiver dentro das chaves
+
+Exemplos:
+
+if (autorizado) {                  if (autorizado) {
+    CarregarPerfil                     ...
+    DirecionarPáginaPrincipal      } else {
+}                      		      ...
+				   }
+if (menorIdade)
+    DirecionarPáginaProibido
+
+
+Se a mais de uma linha de executação deve-se abrir e fechar a chaves {}
+Caso só tiver um conforme segundo if acima (DirecionarPáginaProibido)
+não precisa colocar {}
